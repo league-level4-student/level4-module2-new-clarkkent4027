@@ -40,7 +40,7 @@ public class ScannerDemo {
 		 */
 		System.out.println("Hello friend! What is your name?");
 		String name = scammer.nextLine();
-	//	System.out.println(name);
+		// System.out.println(name);
 
 		/*
 		 * 3. Ask the user for their age in the console. Then use the Scanner to take
@@ -49,8 +49,8 @@ public class ScannerDemo {
 		 * See if you can find the scanner method that does this without relying on
 		 * Integer.parseInt().
 		 */
-System.out.println("Nice to meet you " + name + "! I'm Scammer. How old are you?");
-int age = scammer.nextInt();
+		System.out.println("Nice to meet you, " + name + "! I'm Scammer. How old are you?");
+		int age = scammer.nextInt();
 //System.out.println(age);
 		/*
 		 * 4.) Try asking the user for another piece of information that's not a String
@@ -59,16 +59,36 @@ int age = scammer.nextInt();
 		 * Note: There are many methods similar to the one you used for int that are
 		 * capable of taking in primitive data types.
 		 */
-System.out.println(age + "?! Ehh. you're old enough to scam I guess. Hehe oops, I didn't say anything . . . So friend, what's your parents' credit card number? And their social security number? :)");
+		System.out.println(age + "?! Ehh. you're old enough to scam I guess. Hehe oops, I didn't say anything . . . But first, I must test your IQ, friend. What is 24 divided by 5?)");
+		Double num = scammer.nextDouble();
+//System.out.println(num);
+
 		// 5.) Print the user's data to the console nicely formatted.
+		if (num.equals(4.8)) {
+			System.out.println( num + "? W0W! I think you and I are going to be good friends. Now friend, I would like to give you free tickets for Harry Styles!");
+			System.out.println("So, do you know your social security number, address, phone number, e-mail, mother's maiden name, and the little 4-digit pin on the back of your parents' credit card? (T or F)");
+			Boolean info = scammer.nextBoolean();
+//	System.out.println(info);
+		
+		if (info == true) {
+			System.out.println("Cool beanz! I am sorry to inform you that you just got sC4Mm3d, amigo. The FBI will arrive at your location in approximately 6.5 minutes. I have recently stolen $200,000 from the U.S. government and am pinning the blame on you. You will be locked up for a long time in jail. Please comply with them if you want to survive. Have a gr8 day, friend! :) ");
+		}else {
+			System.out.println(info + "? That's too bad. Goodbye, " + name + ". I must find other victims to sca-- I mean other people to befriend.");
+			
+		}
 
-		/*
-		 * 6.) Close your scanner to avoid memory leaks.
-		 * 
-		 * Note: When using a Scanner with the System.in input stream in larger programs
-		 * only close the scanner when your program is completely done.
-		 */
+			
+		
+		}else {
+System.out.println(num + "?! I'm sorry, " + name + ". Unfortunately, we cannot be friends. It's not me, it's you :( - Anyway, have a gr8 day!");
+		}
 
+/*
+ * 6.) Close your scanner to avoid memory leaks.
+ * 
+ * Note: When using a Scanner with the System.in input stream in larger programs
+ * only close the scanner when your program is completely done.
+ */
+		scammer.close();
 	}
-
 }
