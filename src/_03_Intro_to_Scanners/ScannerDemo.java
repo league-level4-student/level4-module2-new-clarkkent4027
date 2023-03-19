@@ -71,7 +71,7 @@ public class ScannerDemo {
 //	System.out.println(info);
 		
 		if (info == true) {
-			System.out.println("Cool beanz! I am sorry to inform you that you just got sC4Mm3d, amigo. The FBI will arrive at your location in approximately 6.5 minutes. I have recently stolen $200,000 from the U.S. government and am pinning the blame on you. You will be locked up for a long time in jail. Please comply with them if you want to survive. Have a gr8 day, friend! :) ");
+			System.out.println("Cool beanz! I am sorry to inform you that you just got sC4Mm3d, amigo. The FBI will arrive at your location in approximately 6.5 minutes. I have recently stolen 3.2 billion from the U.S. government and am pinning the blame on you. You will be locked up for a long time in jail. Please comply with them if you want to survive. Have a gr8 day, friend! :) ");
 		}else {
 			System.out.println(info + "? That's too bad. Goodbye, " + name + ". I must find other victims to sca-- I mean other people to befriend.");
 			
