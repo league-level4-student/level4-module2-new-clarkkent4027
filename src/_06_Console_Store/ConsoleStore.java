@@ -6,13 +6,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import _02_Generics_Store.AmogusPlush;
 import _02_Generics_Store.Cart;
+import _02_Generics_Store.ChikenLeash;
+import _02_Generics_Store.DonaldDuckShirt;
+import _02_Generics_Store.LEGOMandalorian;
 import _02_Generics_Store.NonFood;
+import _02_Generics_Store.PremiumAvocadoRug;
 
 public class ConsoleStore extends NonFood {
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
-	Scanner scammer = new Scanner(System.in);
+	static Scanner scammer = new Scanner(System.in);
 	static Cart<NonFood> cart;
 	String s;
 	/*
@@ -50,10 +55,72 @@ public class ConsoleStore extends NonFood {
 	 */
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to Amazon.com! You're budget is $100! Type 1-5 to view a product. Then, you may press 'y' to add it to your cart or 'n' to not. Happy shopping!");
+		System.out.println(
+				"Welcome to Amazon.com! You're budget is $100! Type 1-5 to view a product. Then, you may press 'y' to add it to your cart or 'n' to not. Type 'c' to check out whenever you'd like. Happy shopping!");
 		cart = new Cart<NonFood>();
-	
+
+		ChikenLeash P2 = new ChikenLeash();
+		DonaldDuckShirt P3 = new DonaldDuckShirt();
+		LEGOMandalorian P4 = new LEGOMandalorian();
+		PremiumAvocadoRug P5 = new PremiumAvocadoRug();
+		boolean checkout = false;
+		int num;
+		do {
+			num = scammer.nextInt();
+			if (num == 1) {
+				AmogusPlush P1 = new AmogusPlush();
+				P1.showProduct(scammer);
+				//cart.showCart();
+				String s = scammer.nextLine();
+				if (s.equalsIgnoreCase("y")) {
+					cart.add(P1);
+					System.out.println("Amogus Plush successfully added to cart");
+
+				}
+			} else if (num == 2) {
+				P2.showProduct();
+				String s = scammer.nextLine();
+				if (s.equalsIgnoreCase("y")) {
+					cart.add(P2);
+					System.out.println("Chiken Leash successfully added to cart");
+				//	cart.showCart();
+				}
+			} else if (num == 3) {
+				P3.showProduct();
+				String s = scammer.nextLine();
+				if (s.equalsIgnoreCase("y")) {
+					cart.add(P3);
+					System.out.println("Donald Duck Shirt successfully added to cart");
+				//	cart.showCart();
+				}
+			} else if (num == 4) {
+				P4.showProduct();
+				String s = scammer.nextLine();
+				if (s.equalsIgnoreCase("y")) {
+					cart.add(P4);
+					System.out.println("LEGO Mandalorian successfully added to cart");
+				//	cart.showCart();
+				}
+			} else if (num == 5) {
+				P5.showProduct();
+				String s = scammer.nextLine();
+				if (s.equalsIgnoreCase("y")) {
+					cart.add(P5);
+					System.out.println("Premium Avocado Rug successfully added to cart");
+					//cart.showCart();
+				}
+				}else if (num == 6) {
+						cart.showCart();
+					}
+				
+			
 	}
+
+		 while (checkout == false);
+
+	}
+
+	
 
 	@Override
 	public JLabel getNonFood() {

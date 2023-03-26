@@ -39,15 +39,17 @@ public class Cart<T extends NonFood> {
         frame.add(panel);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        System.out.println("HI");
         for (int i = 0; i < cart.length; i++) {
             if (cart[i] != null) {
-                panel.add(cart[i].getNonFood());
+                panel.add(cart[i].getNonFood()); 
+            //    System.out.println(cart[i].item);
             }
         }
         frame.pack();
 
     }
+    
 
     public int length() {
         return cart.length;
