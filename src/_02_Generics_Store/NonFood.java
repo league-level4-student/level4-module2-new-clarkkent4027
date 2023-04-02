@@ -10,7 +10,7 @@ public abstract class NonFood {
 	String item;
 	
 	public abstract JLabel getNonFood();
-		
+		protected static double cash;
 	@SuppressWarnings("rawtypes")
 	public static ImageIcon loadImage(String fileName) {
 		try {
