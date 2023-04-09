@@ -11,6 +11,7 @@ import _02_Generics_Store.Cart;
 import _02_Generics_Store.ChikenLeash;
 import _02_Generics_Store.DonaldDuckShirt;
 import _02_Generics_Store.LEGOMandalorian;
+import _02_Generics_Store.LobsterSlippers;
 import _02_Generics_Store.NonFood;
 import _02_Generics_Store.PremiumAvocadoRug;
 
@@ -56,7 +57,7 @@ public class ConsoleStore extends NonFood {
 
 	public static void main(String[] args) {
 		System.out.println(
-				"Welcome to Amazon.com! You're budget is $100! Type 1-5 to view a product. Then, you may press 'y' to add it to your cart or 'n' to not. Type '0' to check out whenever your finished. Happy shopping!");
+				"Welcome to Amazon.com! You're budget is $100! Type 1-6 to view a product. Then, you may press 'y' to add it to your cart or 'n' to not. Type '0' to check out whenever your finished. Happy shopping!");
 		cart = new Cart<NonFood>();
 		boolean checkout = false;
 		int num;
@@ -143,8 +144,23 @@ public class ConsoleStore extends NonFood {
 					}
 					// cart.showCart();
 				}
+			} else if (num == 6) {
+					LobsterSlippers P6 = new LobsterSlippers();
+					P6.showProduct(scammer);
+					String s = scammer.nextLine();
+					if (s.equalsIgnoreCase("y")) {
+						cart.add(P6);
+						System.out.println("Lobster Slippers successfully added to cart");
+						dough = dough - 19.99;
+						System.out.println("You have $" + dough + " remaining");
+					} else if (s.equalsIgnoreCase("n")) {
+						{
+							System.out.println("Lobster Slippers not added to cart");
+							System.out.println("You have $" + dough + " remaining");
+						}
+						// cart.showCart();
+					}
 			} else if (num == 0) {
-				cart.showCart();
 				checkout = true;
 			}
 		}
@@ -173,9 +189,10 @@ public class ConsoleStore extends NonFood {
 	public static void checkout(Cart<NonFood> cart, double doughLeft) {
 		// TODO Auto-generated method stub
 		System.out.println("Can we please have a name for the order?");
-		String name = scammer.nextLine();
-		System.out.println("Order 1784 for: " + name);
+		String customer = scammer.nextLine();
+		System.out.println("Customer: " + customer);
 		System.out.println("Total spent: " + doughLeft);
+
 	}
 
 }
