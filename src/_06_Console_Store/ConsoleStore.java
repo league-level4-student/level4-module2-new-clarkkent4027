@@ -1,5 +1,7 @@
 package _06_Console_Store;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
@@ -20,6 +22,7 @@ public class ConsoleStore extends NonFood {
 	JPanel panel = new JPanel();
 	static Scanner scammer = new Scanner(System.in);
 	static Cart<NonFood> cart;
+	ArrayList<String> products;
 	String s;
 	/*
 	 * Write a program that simulates shopping in a store using the Scanner and the
@@ -61,24 +64,27 @@ public class ConsoleStore extends NonFood {
 		cart = new Cart<NonFood>();
 		boolean checkout = false;
 		int num;
+		ArrayList<NonFood> products = new ArrayList<NonFood>();
 		double dough = 100.00;
 		do {
-			num = scammer.nextInt();
+			String Num = scammer.nextLine();
+			num = Integer.parseInt(Num);
 			if (num == 1) {
 				AmogusPlush P1 = new AmogusPlush();
+
 				P1.showProduct(scammer);
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P1);
+					products.add(P1);
 					System.out.println("Amogus Plush successfully added to cart");
-					dough = dough - 19.99;
+					dough = dough - P1.getPrice();
 					System.out.println("You have $" + dough + " remaining");
 				} else if (s.equalsIgnoreCase("n")) {
 					{
 						System.out.println("Amogus Plush not added to cart");
 						System.out.println("You have $" + dough + " remaining");
 					}
-					// cart.showCart();
 				}
 			} else if (num == 2) {
 				ChikenLeash P2 = new ChikenLeash();
@@ -86,15 +92,15 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P2);
+					products.add(P2);
 					System.out.println("Chiken Leash successfully added to cart");
-					dough = dough - 9.99;
+					dough = dough - P2.getPrice();
 					System.out.println("You have $" + dough + " remaining");
 				} else if (s.equalsIgnoreCase("n")) {
 					{
 						System.out.println("Chiken Leash not added to cart");
 						System.out.println("You have $" + dough + " remaining");
 					}
-					// cart.showCart();
 				}
 			} else if (num == 3) {
 				DonaldDuckShirt P3 = new DonaldDuckShirt();
@@ -102,15 +108,15 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P3);
+					products.add(P3);
 					System.out.println("Donald Duck t-shirt successfully added to cart");
-					dough = dough - 14.99;
+					dough = dough - P3.getPrice();
 					System.out.println("You have $" + dough + " remaining");
 				} else if (s.equalsIgnoreCase("n")) {
 					{
 						System.out.println("Donald Duck t-shirt not added to cart");
 						System.out.println("You have $" + dough + " remaining");
 					}
-					// cart.showCart();
 				}
 			} else if (num == 4) {
 				LEGOMandalorian P4 = new LEGOMandalorian();
@@ -118,15 +124,15 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P4);
+					products.add(P4);
 					System.out.println("LEGO Mandalorian Spider Tank successfully added to cart");
-					dough = dough - 39.99;
+					dough = dough - P4.getPrice();
 					System.out.println("You have $" + dough + " remaining");
 				} else if (s.equalsIgnoreCase("n")) {
 					{
 						System.out.println("LEGO Mandalorian Spider Tank not added to cart");
 						System.out.println("You have $" + dough + " remaining");
 					}
-					// cart.showCart();
 				}
 			} else if (num == 5) {
 				PremiumAvocadoRug P5 = new PremiumAvocadoRug();
@@ -134,32 +140,34 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P5);
+					products.add(P5);
 					System.out.println("Premium Avocado Rug successfully added to cart");
-					dough = dough - 34.99;
+					dough = dough - P5.getPrice();
 					System.out.println("You have $" + dough + " remaining");
 				} else if (s.equalsIgnoreCase("n")) {
 					{
 						System.out.println("Premium Avocado Rug not added to cart");
 						System.out.println("You have $" + dough + " remaining");
 					}
-					// cart.showCart();
+
 				}
 			} else if (num == 6) {
-					LobsterSlippers P6 = new LobsterSlippers();
-					P6.showProduct(scammer);
-					String s = scammer.nextLine();
-					if (s.equalsIgnoreCase("y")) {
-						cart.add(P6);
-						System.out.println("Lobster Slippers successfully added to cart");
-						dough = dough - 19.99;
+				LobsterSlippers P6 = new LobsterSlippers();
+				P6.showProduct(scammer);
+				String s = scammer.nextLine();
+				if (s.equalsIgnoreCase("y")) {
+					cart.add(P6);
+					products.add(P6);
+					System.out.println("Lobster Slippers successfully added to cart");
+					dough = dough - P6.getPrice();
+					System.out.println("You have $" + dough + " remaining");
+				} else if (s.equalsIgnoreCase("n")) {
+					{
+						System.out.println("Lobster Slippers not added to cart");
 						System.out.println("You have $" + dough + " remaining");
-					} else if (s.equalsIgnoreCase("n")) {
-						{
-							System.out.println("Lobster Slippers not added to cart");
-							System.out.println("You have $" + dough + " remaining");
-						}
-						// cart.showCart();
 					}
+
+				}
 			} else if (num == 0) {
 				checkout = true;
 			}
@@ -169,13 +177,13 @@ public class ConsoleStore extends NonFood {
 
 		if (checkout == true) {
 			if (dough < 0.00) {
-				System.out.println(
-						"Unfortunately, you have spent more money than you have. I am removing the most recent product that you have added.");
-				String c = scammer.nextLine();
+				System.out.println("Unfortunately, you have spent more money than you have. I am removing the most recent product that you have added.");
+
+				NonFood lastItem = products.remove(products.size() - 1);
 
 			}
 			double doughLeft = 100.00 - (dough);
-			checkout(cart, doughLeft);
+			checkout(cart, doughLeft, products);
 		}
 
 	}
@@ -186,11 +194,14 @@ public class ConsoleStore extends NonFood {
 		return null;
 	}
 
-	public static void checkout(Cart<NonFood> cart, double doughLeft) {
+	public static void checkout(Cart<NonFood> cart, double doughLeft, ArrayList<NonFood> products) {
 		// TODO Auto-generated method stub
 		System.out.println("Can we please have a name for the order?");
 		String customer = scammer.nextLine();
 		System.out.println("Customer: " + customer);
+		for (int j = 0; j < products.size(); j++) {
+			System.out.println(products.get(j));
+		}
 		System.out.println("Total spent: " + doughLeft);
 
 	}
