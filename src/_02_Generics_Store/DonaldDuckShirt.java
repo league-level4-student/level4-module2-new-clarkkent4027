@@ -18,7 +18,7 @@ public class DonaldDuckShirt extends NonFood {
 	}
 	
 	public String getText() {
-		String P3Text = ("Donald Duck Shir . . . $14.99");
+		String P3Text = ("Donald Duck Shirt . . . $14.99");
 		return P3Text;
 	}
 	

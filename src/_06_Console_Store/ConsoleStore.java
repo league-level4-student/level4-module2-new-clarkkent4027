@@ -64,7 +64,7 @@ public class ConsoleStore extends NonFood {
 		cart = new Cart<NonFood>();
 		boolean checkout = false;
 		int num;
-		ArrayList<NonFood> products = new ArrayList<NonFood>();
+		ArrayList<String> products = new ArrayList<String>();
 		double dough = 100.00;
 		do {
 			String Num = scammer.nextLine();
@@ -76,7 +76,7 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P1);
-					products.add(P1);
+					products.add(P1.getText());
 					System.out.println("Amogus Plush successfully added to cart");
 					dough = dough - P1.getPrice();
 					System.out.println("You have $" + dough + " remaining");
@@ -92,7 +92,7 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P2);
-					products.add(P2);
+					products.add(P2.getText());
 					System.out.println("Chiken Leash successfully added to cart");
 					dough = dough - P2.getPrice();
 					System.out.println("You have $" + dough + " remaining");
@@ -108,7 +108,7 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P3);
-					products.add(P3);
+					products.add(P3.getText());
 					System.out.println("Donald Duck t-shirt successfully added to cart");
 					dough = dough - P3.getPrice();
 					System.out.println("You have $" + dough + " remaining");
@@ -124,7 +124,7 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P4);
-					products.add(P4);
+					products.add(P4.getText());
 					System.out.println("LEGO Mandalorian Spider Tank successfully added to cart");
 					dough = dough - P4.getPrice();
 					System.out.println("You have $" + dough + " remaining");
@@ -140,7 +140,7 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P5);
-					products.add(P5);
+					products.add(P5.getText());
 					System.out.println("Premium Avocado Rug successfully added to cart");
 					dough = dough - P5.getPrice();
 					System.out.println("You have $" + dough + " remaining");
@@ -157,7 +157,7 @@ public class ConsoleStore extends NonFood {
 				String s = scammer.nextLine();
 				if (s.equalsIgnoreCase("y")) {
 					cart.add(P6);
-					products.add(P6);
+					products.add(P6.getText());
 					System.out.println("Lobster Slippers successfully added to cart");
 					dough = dough - P6.getPrice();
 					System.out.println("You have $" + dough + " remaining");
@@ -179,7 +179,7 @@ public class ConsoleStore extends NonFood {
 			if (dough < 0.00) {
 				System.out.println("Unfortunately, you have spent more money than you have. I am removing the most recent product that you have added.");
 
-				NonFood lastItem = products.remove(products.size() - 1);
+				String lastItem = products.remove(products.size() - 1);
 
 			}
 			double doughLeft = 100.00 - (dough);
@@ -194,7 +194,7 @@ public class ConsoleStore extends NonFood {
 		return null;
 	}
 
-	public static void checkout(Cart<NonFood> cart, double doughLeft, ArrayList<NonFood> products) {
+	public static void checkout(Cart<NonFood> cart, double doughLeft, ArrayList<String> products) {
 		// TODO Auto-generated method stub
 		System.out.println("Can we please have a name for the order?");
 		String customer = scammer.nextLine();
